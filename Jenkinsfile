@@ -1,15 +1,11 @@
 pipeline {
-  agent {
-    docker {
-      image 'python:3'
-      label 'my-custom-label'
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                sh 'echo "Running hello.py"'
+                sh 'python3 hello.py'
+            }
+        }
     }
-  }
-  stages {
-    stage('Build') {
-      steps {
-        sh 'python3 hello.py'
-      }
-    }
-  }
 }
