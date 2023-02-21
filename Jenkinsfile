@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Hello') {
             steps {
-               sh 'python3 hello.py'
+               sh 'python3 hello1.py'
             }
             post {
                 success {
