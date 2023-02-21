@@ -10,6 +10,20 @@ pipeline {
             steps {
                sh 'python3 hello.py'
             }
+            post {
+                success {
+                    sh 'echo "Tests passed! Deploying..."'
+                }
+                failure {
+                    sh 'echo "Tests failed. Aborting deploy."'
+                }
+            }   
         }
+        stage('Deploy') {
+            steps {
+                sh 'echo "Deploying..."'
+            }
+        }   
     }
 }
+
