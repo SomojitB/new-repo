@@ -1,11 +1,14 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/SomojitB/new-repo.git'
-                sh 'echo "Running hello.py"'
-                sh 'python3 hello.py'
+                checkout([$class: 'GitSCM', branches: [[name: 'main']], userRemoteConfigs: [[url: 'https://github.com/SomojitB/new-repo.git']]])
+            }
+        }
+        stage('Hello') {
+            steps {
+                sh 'python hello.py'
             }
         }
     }
