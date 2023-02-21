@@ -1,3 +1,7 @@
+environment {
+    PATH = "/usr/local/bin:${PATH}"
+}
+
 pipeline {
     agent any
     stages {
