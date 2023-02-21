@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Hello') {
             steps {
-                sh 'python3 hello.py'
+                sh '/usr/local/bin/python3 hello.py'
             }
         }
     }
